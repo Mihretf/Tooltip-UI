@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* it is a way to size the elements relative to the visible area of the browser window. 1vh is equal to 1% of the viewport's height. */
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+nav {
+    display: flex; /* it is a way to display the elements in a horizontal line */
+}
+
+.nav-item {
+    position: relative; /* it is a way to position the elements relative to each other. On the navigation item makes it a "container" or "reference point" for the absolutely positioned tooltip, ensuring that the tooltip stays positioned relative to its parent, the navigation item. */
+
+    padding: 10px 20px;
+    text-decoration: none; /* it is a way to remove the underline from the text */
+    color: #333;
+    margin: 0 10px;
+}
+
+.tooltip {
+    position: absolute; /* Position the tooltip relative to the nav item which is the parent item */
+    bottom: 100%; /* Position above the nav item */
+    left: 50%; /* Center the tooltip above the parent item/container*/
+    transform: translateX(-50%); /* Center the tooltip */
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px; /* Rounded corners */
+    white-space: nowrap; /* Prevent line breaks and the tooltip text from wrapping to a new line */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    margin-bottom: 10px; /* Space between the item and tooltip */
+}
+
+.nav-item:hover .tooltip {
+    opacity: 1; /* Show tooltip on hover */
+    visibility: visible; /* Show tooltip on hover */
+}
